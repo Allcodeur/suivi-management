@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:      #060B17;
+  --surf:    #0C1525;
+  --surf2:   #111E35;
+  --surf3:   #162648;
+  --border:  #1B2E54;
+  --primary: #6366F1;
+  --success: #10B981;
+  --warn:    #F59E0B;
+  --danger:  #EF4444;
+  --info:    #38BDF8;
+  --violet:  #A78BFA;
+  --muted:   #64748B;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: #E2E8F0;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* Form inputs */
+input, select, textarea {
+  background: var(--surf3);
+  border: 1px solid var(--border);
+  color: #E2E8F0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+  font-family: inherit;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+}
+input::placeholder { color: var(--muted); }
+select option { background: var(--surf2); }
+
+/* Range input */
+input[type="range"] {
+  padding: 0;
+  background: transparent;
+  border: none;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+.animate-slide-up  { animation: slide-up 0.25s ease; }
+.animate-fade-in   { animation: fade-in 0.2s ease; }
